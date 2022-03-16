@@ -3,7 +3,7 @@ title: "GitHub CLIにgh searchコマンドが実装されたので試す"
 emoji: "👀"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["githubcli", "github"]
-published: false
+published: true
 ---
 ## GitHub CLI v2.6.0がリリース
 v2.5.2で`list`のエイリアスで`ls`が追加されたGitHub CLIですが、この度[v2.6.0がリリース](https://github.com/cli/cli/releases/tag/v2.6.0)されたようです。

@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/braveryk7/zenn-contents/issues"
   },
-  "homepage": "https://github.com/braveryk7/zenn-contents#readme"
+  "homepage": "https://github.com/braveryk7/zenn-contents#readme",
+  "devDependencies": {
+    "zenn-cli": "^0.1.108"
+  }
 }

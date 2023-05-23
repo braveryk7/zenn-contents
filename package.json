@@ -18,6 +18,6 @@
   },
   "homepage": "https://github.com/braveryk7/zenn-contents#readme",
   "devDependencies": {
-    "zenn-cli": "^0.1.108"
+    "zenn-cli": "^0.1.143"
   }
 }

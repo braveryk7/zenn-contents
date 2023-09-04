@@ -60,6 +60,14 @@ $ composer config allow-plugins.dealerdirect/phpcodesniffer-composer-installer t
 
 `composer require`や`composer update`の前に実行、もしくは`composer.json`に追記しておきましょう。
 
+ちなみにコマンドを実行する前に`composer require`コマンドでインストールした場合は以下のように「`composer.json`に追記するけどいい？」と聞かれるのでyを選択してもOKです。
+
+```bash
+
+dealerdirect/phpcodesniffer-composer-installer contains a Composer plugin which is currently not in your allow-plugins config. See https://getcomposer.org/allow-plugins
+Do you trust "dealerdirect/phpcodesniffer-composer-installer" to execute code and wish to enable it now? (writes "allow-plugins" to composer.json) [y,n,d,?] y
+```
+
 ## パッケージ
 filter / libxml / XMLReaderパッケージが明示的に必要になりました。
 なおMbstringとiconvも推奨されています。
@@ -119,14 +127,23 @@ PHP5.4以上が必須な点は変わりませんが、PHPの拡張モジュー�
 
 ```bash
 # 新規プロジェクト
-$ composer require wp-coding-standards/wpcs:3.0.0
+$ composer require --dev wp-coding-standards/wpcs:^3.0
 
 # 既存プロジェクト
-$ composer update wp-coding-standards/wpcs:3.0.0 --with-dependencies
+$ composer require --dev wp-coding-standards/wpcs:^3.0 --update-with-dependencies
 ```
 
 ちなみに私は依存関係の更新がされていると思わず見切り発車で`--with-dependencies`をつけ忘れたところ「PHPCSUtilsが見つからない！」と怒られました。
 その場合は`composer install`コマンドを叩いて最新化させればOKです。
+
+:::message
+上記のアップデートコマンドで依存関係をインストールしてもなぜかPHP_CodeSnifferを実行した時に「PHPCSUtilsが見つからない！
+と怒られてしまうケースがあります。
+その場合も一度`composer install`でvendorディレクトリを最新化してください。
+なおVSCode等のIDEの拡張機能を使っている場合、`composer install`後にウインドウをリロードすれば正常にチェックされると思います。
+
+一応公式ではこのコマンドで無事動くはずなんですが、何らかの理由でupdateだけでは依存関係がうまく更新されていないのかもしれません。
+:::
 
 ## 未対応sniffの追加
 ついにPHP8系以降の新記法に対応しました。
